@@ -21,3 +21,4 @@ fetch(`${PIC_DOMAIN}/sfw/waifu`)
       })
   })
   .catch(error => console.log(error))
+//¯\_(ツ)_/¯
