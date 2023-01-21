@@ -10,7 +10,25 @@ fetch(`${PIC_DOMAIN}/sfw/waifu`)
   .then(async response => {
     const quote = (await (await fetch("https://animechan.vercel.app/api/random")).json())
     const todayDay = (await (await fetch("https://www.timeapi.io/api/Time/current/zone?timeZone=Asia:Makassar")).json()).dayOfWeek
-    const message =`Here quote for ${todayDay}: %0D%0A%0D%0A${quote.quote}%0D%0A%0D%0A-${quote.character}, From: ${quote.anime}`
+
+    let localDay ='😂';
+    if(todayDay == "Monday"){
+      localDay = "Senin";
+    }else if(todayDay == "Tuesday"){
+      localDay = "Selasa";
+    }else if(todayDay == "Wednesday"){
+      localDay = "Rabu";
+    }else if(todayDay == "Thursday"){
+      localDay = "Kamis";
+    }else if(todayDay == "Friday"){
+      localDay = "Jumat";
+    }else if(todayDay == "Saturday"){
+      localDay = "Sabtu";
+    }else if(todayDay == "Sunday"){
+      localDay = "Minggu";
+    }
+
+    const message =`Selamat Hari ${localDay} %0D%0A%0D%0A${quote.quote}%0D%0A%0D%0A-${quote.character}, Dari Anime: ${quote.anime}`
       axios
       .post(`https://graph.facebook.com/${PAGE_ID}/photos?url=${response.url}&message=${message}&access_token=${ACCESS_TOKEN}`, null)
       .then(function(response){
@@ -21,4 +39,3 @@ fetch(`${PIC_DOMAIN}/sfw/waifu`)
       })
   })
   .catch(error => console.log(error))
-//¯\_(ツ)_/¯
