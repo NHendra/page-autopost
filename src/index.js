@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN
 const PAGE_ID = process.env.PAGE_ID
+const API_SECRET = process.env.API_SECRET
 const PIC_DOMAIN = 'https://api.waifu.pics'
 
 fetch(`${PIC_DOMAIN}/sfw/waifu`)
@@ -31,6 +32,15 @@ fetch(`${PIC_DOMAIN}/sfw/waifu`)
     const message =`Selamat Hari ${localDay} %0D%0A%0D%0A${quote.quote}%0D%0A%0D%0A-${quote.character}, Dari Anime: ${quote.anime}`
       axios
       .post(`https://graph.facebook.com/${PAGE_ID}/photos?url=${response.url}&message=${message}&access_token=${ACCESS_TOKEN}`, null)
+      .then(function(response){
+        console.log(response)
+      })
+      .catch(function(error){
+        console.log(error)
+      })
+
+      axios
+      .post(`https://automaton-zeta.vercel.app/api/post-page?secret=${API_SECRET}`, null)
       .then(function(response){
         console.log(response)
       })
