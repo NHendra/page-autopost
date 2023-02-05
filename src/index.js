@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN
 const PAGE_ID = process.env.PAGE_ID
-const API_SECRET = secrets.API_SECRET
+const API_TOKEN = process.env.API_TOKEN
 const PIC_DOMAIN = 'https://api.waifu.pics'
 
 fetch(`${PIC_DOMAIN}/sfw/waifu`)
@@ -40,7 +40,7 @@ fetch(`${PIC_DOMAIN}/sfw/waifu`)
       })
 
       axios
-      .post(`https://automaton-zeta.vercel.app/api/post-page?secret=${API_SECRET}`, null)
+      .post(`https://automaton-zeta.vercel.app/api/post-page?secret=${API_TOKEN}`, null)
       .then(function(response){
         console.log(response)
       })
