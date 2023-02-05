@@ -28,7 +28,7 @@ fetch(`${PIC_DOMAIN}/sfw/waifu`)
     }else if(todayDay == "Sunday"){
       localDay = "Minggu";
     }
-    //males ^
+    //males ^ :v
     const message =`Selamat Hari ${localDay} %0D%0A%0D%0A${quote.quote}%0D%0A%0D%0A-${quote.character}, Dari Anime: ${quote.anime}`
       axios
       .post(`https://graph.facebook.com/${PAGE_ID}/photos?url=${response.url}&message=${message}&access_token=${ACCESS_TOKEN}`, null)
