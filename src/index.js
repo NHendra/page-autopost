@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN
 const PAGE_ID = process.env.PAGE_ID
-const API_SECRET = process.env.API_SECRET
+const API_SECRET = secrets.API_SECRET
 const PIC_DOMAIN = 'https://api.waifu.pics'
 
 fetch(`${PIC_DOMAIN}/sfw/waifu`)
